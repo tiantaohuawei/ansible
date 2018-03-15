@@ -1,0 +1,8 @@
+---
+# defaults file for gridgain
+gridgain:
+  gridgain:
+    category: 'Performance cpu_sincore sincore_int apache-ignite-fabric-2.3.0-bin'
+    scores_way: 'compute_speed_score 2'
+    command: 'IgnitePutBenchmark'
+    parser: 'apache-ignite-fabric-2.3.0-bin_parser'

@@ -1,0 +1,27 @@
+- hosts: '{{ hosts }}'
+  tasks:
+    - name: remove latest data
+      file:
+        path: /tmp/IgnitePutBenchmark_output.log
+        state: absent
+
+
+    - name: delete before output
+      file:
+        path: /tmp/apache-ignite-fabric-2.3.0-bin/benchmarks/output
+        state: absent
+    - name: run apache-ignite-fabric-2.3.0-bin
+      shell: cd /tmp/apache-ignite-fabric-2.3.0-bin/benchmarks/bin &&  ./benchmark-run-all.sh ../config/benchmark-sample.properties
+      register: logdata
+      #gnore_errors: yes
+
+   # - lineinfile: create=yes  dest=/tmp/IgnitePutBenchmark_output.log line="{{ logdata.stdout }}" state=present
+    - lineinfile: create=yes  dest=/tmp/IgnitePutBenchmark_output.log line=/tmp/apache-ignite-fabric-2.3.0-bin/benchmarks/output/*/Results.html state=present
+
+
+#    - name: fetch result
+#      fetch:
+#        src: /tmp/apache-ignite-fabric-2.3.0-bin/benchmarks/output/*/Results.html
+#        dest: /tmp/IgnitePutBenchmark_output.log
+#        flat: yes
+#

@@ -1,0 +1,10 @@
+---
+# tasks file for gridgain
+- name: copy file
+  copy: src=apache-ignite-fabric-2.3.0-bin.zip  dest=/tmp/apache-ignite-fabric-2.3.0-bin.zip  mode=0777
+
+- name: unzip file
+  shell: cd /tmp && unzip apache-ignite-fabric-2.3.0-bin.zip  && rm -rf apache-ignite-fabric-2.3.0-bin.zip 
+
+#- name: run install
+#  shell: "cd /tmp/coremark && ./install.sh"
