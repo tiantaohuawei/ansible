@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+
+#export SCALA_HOME={{SOFTWARE_INSTALL_PATH}}/scala-{{SCALA_VERSION}}
+#export JAVA_HOME={{SOFTWARE_INSTALL_PATH}}/jdk{{JAVA_VERSION}}
+#export HADOOP_HOME={{SOFTWARE_INSTALL_PATH}}/hadoop-{{HADOOP_VERSION}}
+#export HADOOP_CONF_DIR=$HADOOP_HOME/etc/hadoop
+SPARK_MASTER_IP={{master_machine.spark}}
+SPARK_LOCAL_DIRS={{SOFTWARE_INSTALL_PATH}}/spark-{{SPARK_VERSION}}-bin-hadoop{{HADOOP_BIG_VERSION}}
+SPARK_DRIVER_MEMORY={{spark_driver_memory}}

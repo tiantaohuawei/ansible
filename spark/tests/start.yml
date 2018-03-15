@@ -1,0 +1,10 @@
+- hosts: master
+  vars:
+    SOFTWARE_INSTALL_PATH: /home/spark
+    SPARK_VERSION: 2.2.0
+    HADOOP_BIG_VERSION: 2.7
+  tasks:
+    - name: startup spark service
+      shell: 'chdir={{SOFTWARE_INSTALL_PATH}}/spark-{{SPARK_VERSION}}-bin-hadoop{{HADOOP_BIG_VERSION}} sbin/start-all.sh'
+      ignore_errors: yes
+

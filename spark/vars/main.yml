@@ -1,0 +1,28 @@
+---
+# vars file for spark
+#user: BigData
+##passwd: BigData
+#workspace: /home/BigDataTest
+#tmpworkspace: /tmp
+SOFTWARE_INSTALL_PATH: /home/spark
+
+##### Version definition
+SCALA_VERSION: 2.11.6
+#scala_tarball_location: "{{ tmpworkspace }}"
+#scala_tarball_name: "scala-{{SCALA_VERSION}}.tgz"
+JAVA_VERSION: 1.8.0_151
+
+HADOOP_VERSION: 2.7.4
+
+HADOOP_BIG_VERSION: 2.7
+SPARK_VERSION: 2.2.0
+
+
+#spark-env.sh config here
+spark_driver_memory: 2G
+
+master_machine:
+  spark: 192.168.1.188
+
+slaves_machine:
+  spark: 192.168.1.248

@@ -1,0 +1,29 @@
+---
+# tasks file for spark
+#- name: setup spark group
+#  group: name={{spark_group}} system=yes
+#
+#- name: setup spark user
+#  user: name={{spark_user}} system=yes group={{spark_group}}
+
+- name: create deploy main directory
+  file: dest={{SOFTWARE_INSTALL_PATH}} state=directory
+
+- name: copy and decompress files to destination host
+  unarchive: src=spark-{{SPARK_VERSION}}-bin-hadoop{{HADOOP_BIG_VERSION}}.tgz dest={{SOFTWARE_INSTALL_PATH}}
+
+- name: export spark home directory environment
+  lineinfile: dest=~/.bashrc regexp="^export SPARK_HOME" line="export SPARK_HOME={{SOFTWARE_INSTALL_PATH}}/spark-{{SPARK_VERSION}}-bin-hadoop{{HADOOP_BIG_VERSION}}"
+
+- name: export spark conf directory environment
+  lineinfile: dest=~/.bashrc regexp="^export SPARK_CONF_DIR" line="export SPARK_CONF_DIR=$SPARK_HOME/conf"
+
+- name: config spark slave file
+  template: src=slaves_spark.j2 dest={{SOFTWARE_INSTALL_PATH}}/spark-{{SPARK_VERSION}}-bin-hadoop{{HADOOP_BIG_VERSION}}/conf/slaves 
+
+- name: config spark-env.sh file
+  template: src=spark-env.sh.j2 dest={{SOFTWARE_INSTALL_PATH}}/spark-{{SPARK_VERSION}}-bin-hadoop{{HADOOP_BIG_VERSION}}/conf/spark-env.sh 
+
+#- name: startup spark service
+#  shell: 'chdir={{SOFTWARE_INSTALL_PATH}}/spark-{{SPARK_VERSION}}-bin-hadoop{{HADOOP_BIG_VERSION}} sbin/start-all.sh'
+

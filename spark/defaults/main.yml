@@ -1,0 +1,28 @@
+---
+# defaults file for spark
+##apache mirror http address
+apache_mirror: http://mirrors.tuna.tsinghua.edu.cn/apache
+#scala_download_mirror: https://downloads.lightbend.com/scala
+#java_download_mirror: http://download.oracle.com/otn-pub/java/jdk/8u151-b12/e758a0de34e24606bca991d704f6dcbf
+### hadoop define here
+hadoop_tmp_dir: "{{SOFTWARE_INSTALL_PATH}}/hadoop-{{HADOOP_VERSION}}/tmp"
+dfs_namenode_name_dir: "{{SOFTWARE_INSTALL_PATH}}/hadoop-{{HADOOP_VERSION}}/dfs/name"
+dfs_datanode_data_dir: "{{SOFTWARE_INSTALL_PATH}}/hadoop-{{HADOOP_VERSION}}/dfs/data"
+
+
+### spark define here
+
+
+
+### java define here
+
+
+
+### scala define here
+
+
+
+
+spark_group: spark
+spark_user: spark
+
